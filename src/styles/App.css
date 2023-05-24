@@ -153,6 +153,7 @@ i.right {
   display: flex;
   justify-content: center;
   gap: 3vw;
+  margin-bottom: 10vh;
 }
 
 .home-items {
