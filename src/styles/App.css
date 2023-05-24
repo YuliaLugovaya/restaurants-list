@@ -9,10 +9,165 @@ body {
   min-height: 100vh;
 }
 
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.nav-container {
+  background-color: #ffb300;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.pages-title {
+  text-align: center;
+  margin: 10vh 0;
+}
+
+.btn {
+  background-color: #ffe082;
+  color: black;
+}
+
+.btn:hover {
+  background-color: #ffd54f;
+}
+
+.btn-remove {
+  background-color: #d7ccc8;
+}
+
+.btn-remove:hover {
+  background-color: #bcaaa4;
+}
+
 .main {
   flex: 1 1 auto;
   max-width: 1200px;
   margin: 0 auto;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.card {
+  margin: 10px;
+  width: 300px;
+}
+
+.card .card-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.card-text {
+  font-weight: bold;
+}
+
+.page-footer {
+  padding-top: 0;
+  background-color: #6d4c41;
+}
+
+.page-footer .footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.footer-link {
+  text-decoration: underline;
+}
+
+.card-image {
+  width: 300px;
+  height: 200px;
+}
+
+.image,
+.home-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.subtitle {
+  font-weight: 600;
+}
+
+.card-wrapper {
+  display: flex;
+  margin: 0 0 5vh 0;
+}
+
+.card-edit-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10vh 0 10vh 0;
+}
+
+.card-content {
+  padding: 10px;
+}
+
+.card .card-content .card-title {
+  height: 70px;
+  line-height: 28px;
+}
+
+.card-title-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+i.right {
+  margin-top: 2px;
+}
+
+.form-check-btn {
+  margin-right: 10px;
+}
+
+.home-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 3vw;
+}
+
+.home-items {
+  width: 50%;
+}
+
+.home-text {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.btn-add {
+  margin-top: 30px;
+}
+
+.card .card-content p {
+  margin: 10px 0;
 }

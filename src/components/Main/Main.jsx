@@ -1,10 +1,14 @@
 import React from 'react';
+import CardList from '../CardList/CardList'
+
 
 function Main(props) {
   return (
-    <div>
-      Main
-    </div>
+    <>
+      <main className='main'>
+        <CardList />
+      </main>
+    </>
   );
 }
 
