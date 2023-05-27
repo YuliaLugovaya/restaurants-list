@@ -7,17 +7,16 @@ import Home from '../Home/Home';
 import AddCard from '../AddCard/AddCard';
 import Edit from '../Edit/Edit';
 import { globalContext as GlobalContext } from '../../contexts/globalContext';
-import { useReducer, useEffect } from 'react';
-import { reducer, initializer, initialState } from '../../reducers/reducer';
 import { Route, Routes } from 'react-router-dom';
+import { useLocalStorage } from '../../hooks/useLS';
 
 function App() {
 
-  const [state, dispatch] = useReducer(reducer, initialState, initializer);
+  const initialState = {
+    list: []
+  }
 
-  useEffect(() => {
-    localStorage.setItem("cards", JSON.stringify(state));
-  }, [state]);
+  const [state, dispatch] = useLocalStorage('tasks', initialState);
 
   return (
     <div className="App wrapper">

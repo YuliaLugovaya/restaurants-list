@@ -1,10 +1,3 @@
-export const initialState = {
-  list: []
-}
-
-export const initializer = (initialValue = initialState) =>
-  JSON.parse(localStorage.getItem("cards")) || initialValue;
-
 export function reducer(state, action) {
   switch (action.type) {
     case 'ADD_CARD': {
