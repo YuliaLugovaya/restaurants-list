@@ -1,17 +1,15 @@
-import React, { useContext } from 'react';
-import { globalContext } from '../../contexts/globalContext';
+import React from 'react';
 import defultImage from '../../assets/images/form/form.jpg';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { deleteCardAC } from '../../store/actions/mainActions';
 
 function Card({ id, text, description, image, location }) {
 
-  const { dispatch } = useContext(globalContext);
+  const dispatch = useDispatch();
 
   function removeTask(id) {
-    dispatch({
-      type: 'DELETE_CARD',
-      payload: id,
-    })
+    dispatch(deleteCardAC(id));
   }
 
   return (

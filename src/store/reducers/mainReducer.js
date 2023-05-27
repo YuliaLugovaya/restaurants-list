@@ -1,14 +1,20 @@
-export function reducer(state, action) {
+import { mainTypes } from "../actions/actionTypes";
+
+const initialState = {
+  list: []
+}
+
+export function mainReducer(state = initialState, action) {
   switch (action.type) {
-    case 'ADD_CARD': {
+    case mainTypes.ADD_CARD: {
       const newTask = action.payload;
       return { ...state, list: [...state.list, newTask] }
     }
-    case 'DELETE_CARD': {
+    case mainTypes.DELETE_CARD: {
       const deleteTask = action.payload;
       return { ...state, list: state.list.filter((el) => deleteTask !== el.id) }
     }
-    case 'EDIT_CARD': {
+    case mainTypes.EDIT_CARD: {
       const { id, value, descriptionEdit, imageEdit, locationEdit } = action.payload;
       return {
         ...state, list: state.list.map((el) => {

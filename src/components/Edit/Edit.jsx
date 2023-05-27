@@ -1,13 +1,18 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { globalContext } from '../../contexts/globalContext';
 import { Link } from 'react-router-dom';
 import defultImage from '../../assets/images/form/form.jpg';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { editCardAC } from '../../store/actions/mainActions';
+
 
 function Edit(props) {
   const { id } = useParams();
-  const { state, dispatch } = useContext(globalContext);
   const navigate = useNavigate();
+
+  const { list } = useSelector((store) => store.mainStore);
+  const dispatch = useDispatch();
 
   const [edit, setEdit] = useState(null);
   const [value, setValue] = useState('');
@@ -15,7 +20,7 @@ function Edit(props) {
   const [imageEdit, setImageEdit] = useState('');
   const [locationEdit, setLocationEdit] = useState('');
 
-  const currentCard = state.list.find((el) => el.id === +id);
+  const currentCard = list.find((el) => el.id === +id);
 
   function editTask(id, text, description, image, location) {
     setEdit(id);
@@ -27,16 +32,13 @@ function Edit(props) {
 
   function handleSubmitEdit(e) {
     e.preventDefault();
-    dispatch({
-      type: 'EDIT_CARD',
-      payload: {
+    dispatch(editCardAC({
         id: +id,
         value,
         descriptionEdit,
         imageEdit,
         locationEdit,
-      }
-    })
+      }));
     setEdit(null);
     navigate('/restaurants');
   }

@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Card from '../Card/Card';
-import { globalContext } from '../../contexts/globalContext';
+import { useSelector } from 'react-redux';
 
 function CardList() {
 
-  const { state } = useContext(globalContext);
+  const { list } = useSelector((store) => store.mainStore);
 
   return (
     <section className='card-container'>
-      {state.list.map((post) => (
+      {list.map((post) => (
         <div key={post.id}>
           <Card id={post.id} text={post.text} image={post.image} description={post.description} location={post.location} />
         </div>

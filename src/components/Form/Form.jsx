@@ -1,10 +1,9 @@
-import React, { useContext, useState } from 'react';
-import { globalContext } from '../../contexts/globalContext';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addCardAC } from '../../store/actions/mainActions';
 
 function Form() {
-
-  const { dispatch } = useContext(globalContext);
 
   const [text, setText] = useState('');
   const [image, setImage] = useState('');
@@ -12,21 +11,19 @@ function Form() {
   const [location, setLocation] = useState('');
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   function handleSubmit(event) {
     event.preventDefault();
 
     if (text) {
-      dispatch({
-        type: 'ADD_CARD',
-        payload: {
+      dispatch(addCardAC({
           text,
           image,
           description,
           location,
           id: Date.now(),
-        }
-      });
+        }));
       navigate('/restaurants');
     }
     setText('');
